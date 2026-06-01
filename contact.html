@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contact 103 for selected film collaborations or private mountain experiences.">
+    <title>Contact | 103</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="103 home"><img src="assets/logo-103.png" alt=""><span class="sr-only">103</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Open navigation</span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="film.html">103 Film</a><a href="mountain.html">103 Mountain</a><a class="nav-cta" href="contact.html" aria-current="page">Contact</a><span class="lang-switch"><span>EN</span><a href="sl/contact.html">SL</a></span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section reveal">
+        <p class="eyebrow">Contact</p>
+        <h1>Start a considered conversation.</h1>
+        <p>If you are considering a film collaboration or a private mountain experience, feel free to get in touch. A short initial exchange is often enough to establish whether the fit is right.</p>
+      </section>
+
+      <section class="section contact-layout reveal">
+        <div class="contact-panel">
+          <p class="eyebrow">Direct contact</p>
+          <h2>103</h2>
+          <p>Jure Niedorfer</p>
+          <a class="text-link" href="mailto:hello@example.com">hello@example.com</a>
+          <p class="note">Replace this with your preferred email and phone number when ready.</p>
+        </div>
+
+        <form class="contact-form" action="mailto:hello@example.com" method="post" enctype="text/plain">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>
+            <span>Inquiry type</span>
+            <select name="inquiry" required>
+              <option value="">Select one</option>
+              <option>Selected film project</option>
+              <option>Private mountain experience</option>
+              <option>General conversation</option>
+            </select>
+          </label>
+          <label>
+            <span>Context</span>
+            <textarea name="message" rows="7" placeholder="For film: project type, location, timing, terrain/access context. For mountain: group size, experience level, preferred dates, expectations." required></textarea>
+          </label>
+          <button class="button button-dark" type="submit">Start a conversation</button>
+        </form>
+      </section>
+
+      <section class="section reveal">
+        <p class="wide-copy">103 works on a limited number of collaborations and private experiences. Clear initial information helps determine whether the timing and fit are right.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span><img class="footer-logo" src="assets/logo-103.png" alt="103"></span><span>Jure Niedorfer</span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
