@@ -651,7 +651,7 @@ h3 {
 .about-story {
   display: grid;
   grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1fr);
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto 1fr;
   gap: clamp(18px, 3vw, 34px) clamp(30px, 6vw, 82px);
   align-items: stretch;
 }
@@ -677,6 +677,10 @@ h3 {
 
 .about-copy-three {
   grid-row: 4;
+}
+
+.about-copy-four {
+  grid-row: 5;
   margin-bottom: 0;
 }
 
@@ -693,7 +697,7 @@ h3 {
 
 .about-photo-two {
   grid-column: 1;
-  grid-row: 3 / 5;
+  grid-row: 3 / 6;
 }
 
 .about-photo img {
@@ -707,11 +711,11 @@ h3 {
 }
 
 .about-photo-one img {
-  object-position: 50% 42%;
+  object-position: 62% 42%;
 }
 
 .about-family-image {
-  object-position: 50% 46%;
+  object-position: 12% 46%;
 }
 
 .principle-grid {
@@ -812,6 +816,10 @@ h3 {
   width: fit-content;
 }
 
+.contact-image img {
+  width: 100%;
+}
+
 .note {
   margin-top: 28px;
   font-size: 0.92rem;
@@ -830,6 +838,64 @@ h3 {
 .footer-logo {
   width: 58px;
   height: auto;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-legal a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  color: var(--ink);
+}
+
+.legal-doc {
+  max-width: 980px;
+}
+
+.legal-block {
+  padding-block: clamp(22px, 4vw, 42px);
+  border-top: 1px solid var(--line);
+}
+
+.legal-block:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.legal-block h2,
+.legal-block h3 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+}
+
+.legal-block p,
+.legal-block li {
+  max-width: 820px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.legal-block ul {
+  margin: 12px 0 20px;
+  padding-left: 1.2rem;
+}
+
+.legal-block li + li {
+  margin-top: 6px;
 }
 
 .film-page {
@@ -931,6 +997,10 @@ body:not(.film-page) .two-up {
 
   .about-copy-three {
     order: 6;
+  }
+
+  .about-copy-four {
+    order: 7;
   }
 
   .about-photo img {
