@@ -3,6 +3,7 @@
   "name": "103",
   "main": "_worker.js",
   "compatibility_date": "2026-06-08",
+  "keep_vars": true,
   "assets": {
     "directory": ".",
     "not_found_handling": "404-page"
