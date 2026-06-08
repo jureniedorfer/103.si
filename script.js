@@ -106,6 +106,42 @@ const setCookieConsent = (value) => {
   }
 };
 
+const initContactFormStatus = () => {
+  const status = document.querySelector("[data-contact-form-status]");
+
+  if (!status) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const formStatus = params.get("form");
+
+  if (!formStatus) {
+    return;
+  }
+
+  const isSlovenian = document.documentElement.lang.toLowerCase().startsWith("sl");
+  const messages = isSlovenian
+    ? {
+        success: "Hvala. Sporočilo je bilo poslano.",
+        error: "Sporočila ni bilo mogoče poslati. Poskusite znova ali pišite neposredno na hello@103.si."
+      }
+    : {
+        success: "Thank you. Your message has been sent.",
+        error: "The message could not be sent. Please try again or email hello@103.si directly."
+      };
+
+  if (formStatus === "success") {
+    status.textContent = messages.success;
+    status.classList.add("is-visible", "is-success");
+  }
+
+  if (formStatus === "error") {
+    status.textContent = messages.error;
+    status.classList.add("is-visible", "is-error");
+  }
+};
+
 const initCookieNotice = () => {
   const isSlovenian = document.documentElement.lang.toLowerCase().startsWith("sl");
   const cookieCopy = isSlovenian
@@ -188,4 +224,5 @@ const initCookieNotice = () => {
   }
 };
 
+initContactFormStatus();
 initCookieNotice();

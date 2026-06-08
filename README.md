@@ -22,6 +22,24 @@ The website is intentionally minimal, responsive, and built without a framework 
 
 No package manager, build step, or backend is required.
 
+## Contact Form
+
+The contact forms post to a Cloudflare Pages Function at `/api/contact`, which sends the enquiry email through Resend.
+
+Required Cloudflare Pages environment variables:
+
+```text
+RESEND_API_KEY=your Resend API key
+CONTACT_FROM_EMAIL=103 <forms@103.si>
+CONTACT_TO_EMAIL=hello@103.si
+```
+
+Notes:
+
+- `CONTACT_FROM_EMAIL` must use a domain verified in Resend.
+- `CONTACT_TO_EMAIL` is optional in code and defaults to `hello@103.si`, but setting it explicitly is recommended.
+- The form includes a basic honeypot field and server-side validation.
+
 ## Project Structure
 
 ```text
@@ -121,4 +139,3 @@ If the domain is already managed by Cloudflare, setup is usually automatic.
 - The language switch is static and links between matching English and Slovenian pages.
 - Contact email placeholders should be replaced before publishing:
   - `hello@example.com`
-

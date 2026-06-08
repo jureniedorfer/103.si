@@ -834,6 +834,35 @@ h3 {
   box-shadow: none;
 }
 
+.contact-form-honeypot {
+  position: absolute;
+  left: -100vw;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form-status {
+  display: none;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+.contact-form-status.is-visible {
+  display: block;
+}
+
+.contact-form-status.is-success {
+  background: #edf4ed;
+  border-color: #b6cdb6;
+}
+
+.contact-form-status.is-error {
+  background: #f7eeee;
+  border-color: #d4b4b4;
+}
+
 .contact-form label {
   display: grid;
   gap: 8px;
@@ -866,6 +895,13 @@ h3 {
 
 .contact-form .button {
   width: fit-content;
+}
+
+.form-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
 }
 
 .contact-image img {
