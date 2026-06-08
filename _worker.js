@@ -13,22 +13,6 @@ const getField = (formData, name) => {
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-const createSubmissionId = () => {
-  if (globalThis.crypto && typeof globalThis.crypto.randomUUID === "function") {
-    return globalThis.crypto.randomUUID();
-  }
-
-  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-};
-
-const logContactFailure = (submissionId, reason, details = {}) => {
-  console.error("contact_form_failure", {
-    submissionId,
-    reason,
-    ...details
-  });
-};
-
 const escapeHtml = (value) =>
   value
     .replace(/&/g, "&amp;")
@@ -37,23 +21,17 @@ const escapeHtml = (value) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 
-const getRedirectUrl = (request, language, status, submissionId = "") => {
+const getRedirectUrl = (request, language, status) => {
   const url = new URL(request.url);
   url.pathname = language === "sl" ? "/sl/contact.html" : "/contact.html";
-  const params = new URLSearchParams({ form: status });
-
-  if (status === "error" && submissionId) {
-    params.set("ref", submissionId);
-  }
-
-  url.search = `?${params.toString()}`;
+  url.search = `?form=${status}`;
   url.hash = "";
 
   return url.toString();
 };
 
-const redirectToContact = (request, language, status, submissionId) =>
-  Response.redirect(getRedirectUrl(request, language, status, submissionId), 303);
+const redirectToContact = (request, language, status) =>
+  Response.redirect(getRedirectUrl(request, language, status), 303);
 
 const buildEmail = ({ name, email, inquiry, message, language }) => {
   const rows = [
@@ -80,23 +58,18 @@ const buildEmail = ({ name, email, inquiry, message, language }) => {
 };
 
 const handleContactSubmission = async (request, env) => {
-  const submissionId = createSubmissionId();
   let formData;
 
   try {
     formData = await request.formData();
   } catch (error) {
-    logContactFailure(submissionId, "invalid_form_data", {
-      message: error instanceof Error ? error.message : String(error)
-    });
-    return redirectToContact(request, "en", "error", submissionId);
+    return redirectToContact(request, "en", "error");
   }
 
   const language = getField(formData, "language") === "sl" ? "sl" : "en";
   const honeypot = getField(formData, "company");
 
   if (honeypot) {
-    console.warn("contact_form_honeypot", { submissionId, language });
     return redirectToContact(request, language, "success");
   }
 
@@ -106,24 +79,11 @@ const handleContactSubmission = async (request, env) => {
   const message = getField(formData, "message");
 
   if (!name || !isValidEmail(email) || !inquiry || !message) {
-    logContactFailure(submissionId, "validation_failed", {
-      hasName: Boolean(name),
-      hasValidEmail: isValidEmail(email),
-      hasInquiry: Boolean(inquiry),
-      hasMessage: Boolean(message),
-      language
-    });
-    return redirectToContact(request, language, "error", submissionId);
+    return redirectToContact(request, language, "error");
   }
 
   if (!env.RESEND_API_KEY || !env.CONTACT_FROM_EMAIL) {
-    logContactFailure(submissionId, "missing_environment", {
-      hasResendApiKey: Boolean(env.RESEND_API_KEY),
-      hasContactFromEmail: Boolean(env.CONTACT_FROM_EMAIL),
-      hasContactToEmail: Boolean(env.CONTACT_TO_EMAIL),
-      language
-    });
-    return redirectToContact(request, language, "error", submissionId);
+    return redirectToContact(request, language, "error");
   }
 
   const recipient = env.CONTACT_TO_EMAIL || "hello@103.si";
@@ -148,30 +108,12 @@ const handleContactSubmission = async (request, env) => {
       })
     });
   } catch (error) {
-    logContactFailure(submissionId, "resend_request_failed", {
-      message: error instanceof Error ? error.message : String(error),
-      language
-    });
-    return redirectToContact(request, language, "error", submissionId);
+    return redirectToContact(request, language, "error");
   }
 
   if (!response.ok) {
-    const responseText = await response.text();
-
-    logContactFailure(submissionId, "resend_response_not_ok", {
-      resendStatus: response.status,
-      resendStatusText: response.statusText,
-      resendResponse: responseText.slice(0, 500),
-      language
-    });
-    return redirectToContact(request, language, "error", submissionId);
+    return redirectToContact(request, language, "error");
   }
-
-  console.info("contact_form_success", {
-    submissionId,
-    resendStatus: response.status,
-    language
-  });
 
   return redirectToContact(request, language, "success");
 };
