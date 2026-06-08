@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "103-si",
+  "name": "103",
   "main": "_worker.js",
   "compatibility_date": "2026-06-08",
   "assets": {
