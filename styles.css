@@ -908,8 +908,74 @@ h3 {
   text-decoration: none;
 }
 
-.footer-legal a:hover {
+.footer-cookie-settings {
+  padding: 0;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.footer-legal a:hover,
+.footer-cookie-settings:hover,
+.footer-cookie-settings:focus-visible {
   color: var(--ink);
+}
+
+.cookie-notice {
+  position: fixed;
+  inset: auto clamp(14px, 3vw, 36px) clamp(14px, 3vw, 36px) auto;
+  z-index: 60;
+  display: grid;
+  width: min(100% - 28px, 560px);
+  gap: 18px;
+  padding: 22px;
+  color: var(--ink);
+  background: rgba(251, 250, 246, 0.98);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.cookie-notice.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.cookie-notice p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.cookie-notice a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 10px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+}
+
+.cookie-notice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.cookie-notice .button {
+  min-height: 44px;
 }
 
 .legal-doc {
