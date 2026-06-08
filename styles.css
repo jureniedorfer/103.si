@@ -146,7 +146,7 @@ textarea {
 }
 
 .nav-cta {
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 0;
 }
 
 .lang-switch {
@@ -834,6 +834,11 @@ h3 {
   box-shadow: none;
 }
 
+.contact-panel-logo {
+  width: 96px;
+  margin-bottom: 22px;
+}
+
 .contact-form-honeypot {
   position: absolute;
   left: -100vw;
@@ -1068,7 +1073,7 @@ h3 {
 
 .film-page .sub-hero {
   min-height: auto;
-  padding-top: clamp(64px, 9vw, 112px);
+  padding-top: calc(clamp(64px, 9vw, 112px) + 88px);
   padding-bottom: clamp(64px, 9vw, 112px);
 }
 
@@ -1332,6 +1337,10 @@ body:not(.film-page) .two-up {
 @media (max-width: 460px) {
   h1 {
     font-size: clamp(2.7rem, 16vw, 4.2rem);
+  }
+
+  html[lang="en"] .contact-page .page-hero h1 {
+    font-size: clamp(2.7rem, 12.2vw, 3.2rem);
   }
 
   .reference-list article {
