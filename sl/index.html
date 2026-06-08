@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="103 je osebna praksa Jureta Niedorferja: izbrano filmsko delo v zahtevnem terenu in prilagojena gorska doživetja za zasebne goste.">
     <title>103 | Film in gore</title>
-    <link rel="preload" href="../assets/front-mountain-split.jpg" as="image">
+    <link rel="preload" href="../assets/front-mountain-split.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -31,7 +31,10 @@
     <main>
       <section class="hero home-hero">
         <div class="hero-image hero-image-abstract reveal">
-          <img src="../assets/front-mountain-split.jpg" alt="Abstraktna črno-bela tekstura snega v gorskem okolju.">
+          <picture>
+            <source srcset="../assets/front-mountain-split.webp" type="image/webp">
+            <img src="../assets/front-mountain-split.jpg" alt="Abstraktna črno-bela tekstura snega v gorskem okolju.">
+          </picture>
         </div>
         <div class="hero-copy reveal">
           <p class="eyebrow">103</p>
@@ -57,11 +60,17 @@
 
       <section class="section home-visuals reveal" aria-label="103 Film in 103 Mountain">
         <a class="home-visual" href="film.html" aria-label="Razišči 103 Film">
-          <img src="../assets/photo-home-film-103.png" alt="Filmsko delo s kamero v gorski krajini.">
+          <picture>
+            <source srcset="../assets/photo-home-film-103.webp" type="image/webp">
+            <img src="../assets/photo-home-film-103.jpg" alt="Filmsko delo s kamero v gorski krajini." loading="lazy" decoding="async">
+          </picture>
           <span>103 Film</span>
         </a>
         <a class="home-visual" href="mountain.html" aria-label="Razišči 103 Mountain">
-          <img src="../assets/photo-mountain-first-103.jpg" alt="Samotna oseba v temni gorski krajini z oblaki.">
+          <picture>
+            <source srcset="../assets/photo-mountain-first-103.webp" type="image/webp">
+            <img src="../assets/photo-mountain-first-103.jpg" alt="Samotna oseba v temni gorski krajini z oblaki." loading="lazy" decoding="async">
+          </picture>
           <span>103 Mountain</span>
         </a>
       </section>

@@ -98,6 +98,32 @@ textarea {
   filter: invert(1);
 }
 
+.brand picture,
+.hero-image picture,
+.home-visual picture,
+.film-proof-media picture,
+.editorial-grid picture,
+.contact-image picture,
+.about-photo picture {
+  display: block;
+}
+
+.brand picture,
+.hero-image picture,
+.home-visual picture,
+.film-proof-media picture,
+.editorial-grid picture,
+.contact-image picture,
+.about-photo picture {
+  width: 100%;
+}
+
+.hero-image picture,
+.home-visual picture,
+.about-photo picture {
+  height: 100%;
+}
+
 .site-nav {
   display: flex;
   align-items: center;

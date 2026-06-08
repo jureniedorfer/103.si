@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="103 Mountain: prilagojena gorska doživetja za zasebne goste.">
     <title>103 Mountain | Prilagojena gorska doživetja</title>
-    <link rel="preload" href="../assets/photo-mountain-hero-103.jpg" as="image">
+    <link rel="preload" href="../assets/photo-mountain-hero-103.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -27,7 +27,7 @@
           <p>Vodenje v gorah oblikujem premišljeno in osebno, z občutkom za varnost, usklajenost in kakovost celotnega dne.</p>
           <a class="button button-dark" href="contact.html">Povprašaj o zasebnem gorskem doživetju</a>
         </div>
-        <div class="hero-image reveal"><img src="../assets/photo-mountain-hero-103.jpg" alt="Samotna oseba na temni alpski skali."></div>
+        <div class="hero-image reveal"><picture><source srcset="../assets/photo-mountain-hero-103.webp" type="image/webp"><img src="../assets/photo-mountain-hero-103.jpg" alt="Samotna oseba na temni alpski skali."></picture></div>
       </section>
 
       <section class="section two-up reveal">
@@ -56,7 +56,10 @@
       </section>
 
       <section class="section editorial-grid reveal">
-        <img src="../assets/photo-mountain-rock-sky.jpg" alt="Temna alpska skalna stena proti nebu.">
+        <picture>
+          <source srcset="../assets/photo-mountain-rock-sky.webp" type="image/webp">
+          <img src="../assets/photo-mountain-rock-sky.jpg" alt="Temna alpska skalna stena proti nebu." loading="lazy" decoding="async">
+        </picture>
         <div>
           <p class="eyebrow">Kako vodim</p>
           <h2>Pozornost, mirnost in odgovornost.</h2>

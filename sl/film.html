@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="103 Film: izbrano filmsko delo v zahtevnem terenu.">
     <title>103 Film | Izbrano filmsko delo v zahtevnem terenu</title>
-    <link rel="preload" href="../assets/photo-film-rope-103.jpg" as="image">
+    <link rel="preload" href="../assets/photo-film-rope-103.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="film-page">
@@ -27,7 +27,7 @@
           <p>Osredotočen na snemanja in produkcijo v okoljih, kjer teren ni zgolj ozadje, ampak tudi del izziva.</p>
           <a class="button button-dark" href="contact.html">Pogovor o filmskem sodelovanju</a>
         </div>
-        <div class="hero-image reveal"><img src="../assets/photo-film-rope-103.jpg" alt="Filmsko delo s kamero v izpostavljenem gorskem terenu."></div>
+        <div class="hero-image reveal"><picture><source srcset="../assets/photo-film-rope-103.webp" type="image/webp"><img src="../assets/photo-film-rope-103.jpg" alt="Filmsko delo s kamero v izpostavljenem gorskem terenu."></picture></div>
       </section>
 
       <section class="section reveal">
@@ -57,7 +57,10 @@
 
       <section class="section film-proof reveal">
         <div class="film-proof-media">
-          <img src="../assets/photo-film-quiet-proof.png" alt="Filmska ekipa pri delu na strehi nad mestom.">
+          <picture>
+            <source srcset="../assets/photo-film-quiet-proof.webp" type="image/webp">
+            <img src="../assets/photo-film-quiet-proof.jpg" alt="Filmska ekipa pri delu na strehi nad mestom." loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="film-proof-copy">
           <p class="eyebrow">Izbrani naročniki in delo</p>

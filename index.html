@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="103 is the personal practice of Jure Niedorfer: selected film work in demanding terrain and tailored mountain experiences for private guests.">
     <title>103 | Film and Mountain</title>
-    <link rel="preload" href="assets/front-mountain-split.jpg" as="image">
+    <link rel="preload" href="assets/front-mountain-split.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -31,7 +31,10 @@
     <main>
       <section class="hero home-hero">
         <div class="hero-image hero-image-abstract reveal">
-          <img src="assets/front-mountain-split.jpg" alt="Abstract split black and white mountain snow texture.">
+          <picture>
+            <source srcset="assets/front-mountain-split.webp" type="image/webp">
+            <img src="assets/front-mountain-split.jpg" alt="Abstract split black and white mountain snow texture.">
+          </picture>
         </div>
         <div class="hero-copy reveal">
           <p class="eyebrow">103</p>
@@ -57,11 +60,17 @@
 
       <section class="section home-visuals reveal" aria-label="103 Film and 103 Mountain">
         <a class="home-visual" href="film.html" aria-label="Explore 103 Film">
-          <img src="assets/photo-home-film-103.png" alt="Camera work in a mountain landscape.">
+          <picture>
+            <source srcset="assets/photo-home-film-103.webp" type="image/webp">
+            <img src="assets/photo-home-film-103.jpg" alt="Camera work in a mountain landscape." loading="lazy" decoding="async">
+          </picture>
           <span>103 Film</span>
         </a>
         <a class="home-visual" href="mountain.html" aria-label="Explore 103 Mountain">
-          <img src="assets/photo-mountain-first-103.jpg" alt="A lone figure standing in a dark mountain landscape with clouds.">
+          <picture>
+            <source srcset="assets/photo-mountain-first-103.webp" type="image/webp">
+            <img src="assets/photo-mountain-first-103.jpg" alt="A lone figure standing in a dark mountain landscape with clouds." loading="lazy" decoding="async">
+          </picture>
           <span>103 Mountain</span>
         </a>
       </section>
