@@ -5,7 +5,7 @@
   --paper: #f3f1ec;
   --surface: #fbfaf6;
   --line: #c9c4bc;
-  --accent: #111111;
+  --accent: #b85c1e;
   --olive: #2b2b2b;
   --charcoal: #2b2b2b;
   --shadow: 0 26px 70px rgba(17, 17, 17, 0.13);
@@ -120,7 +120,7 @@ textarea {
 }
 
 .nav-cta {
-  border-bottom: 1px solid rgba(251, 250, 246, 0.44);
+  border-bottom: 1px solid var(--accent);
 }
 
 .lang-switch {
@@ -220,7 +220,7 @@ textarea {
 .hero-image-abstract {
   width: min(42vw, 560px);
   min-height: clamp(560px, 76vh, 820px);
-  justify-self: start;
+  justify-self: end;
 }
 
 .hero-image-abstract img {
@@ -231,11 +231,15 @@ textarea {
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--muted);
+  color: var(--accent);
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+}
+
+.text-accent {
+  color: var(--accent);
 }
 
 h1,
@@ -279,6 +283,11 @@ h3 {
 
 .hero p {
   color: rgba(251, 250, 246, 0.72);
+}
+
+.hero .eyebrow,
+.section .eyebrow {
+  color: var(--accent);
 }
 
 .button-row {
@@ -469,7 +478,7 @@ h3 {
 }
 
 .standard .eyebrow {
-  color: rgba(251, 250, 246, 0.58);
+  color: var(--accent);
 }
 
 .principle-list {
@@ -624,11 +633,28 @@ h3 {
 }
 
 .page-hero .eyebrow {
-  color: rgba(251, 250, 246, 0.58);
+  color: var(--accent);
 }
 
 .page-hero p {
   color: rgba(251, 250, 246, 0.72);
+}
+
+.contact-page .page-hero {
+  padding-bottom: clamp(41px, 6vw, 77px);
+}
+
+.contact-page .contact-layout {
+  padding-top: clamp(41px, 6vw, 77px);
+  padding-bottom: clamp(41px, 6vw, 77px);
+}
+
+.contact-page .contact-image {
+  padding-block: clamp(41px, 6vw, 77px);
+}
+
+.contact-page .contact-image + .section {
+  padding-top: clamp(41px, 6vw, 77px);
 }
 
 .editorial-grid {
@@ -912,6 +938,28 @@ h3 {
   padding-block: clamp(64px, 9vw, 112px);
 }
 
+.film-page .sub-hero {
+  min-height: auto;
+  padding-top: clamp(64px, 9vw, 112px);
+  padding-bottom: clamp(64px, 9vw, 112px);
+}
+
+.film-page .sub-hero .hero-image {
+  width: min(100%, 700px);
+  justify-self: start;
+}
+
+.mountain-page .sub-hero .hero-image {
+  width: min(100%, 700px);
+  justify-self: start;
+}
+
+.mountain-page .sub-hero {
+  min-height: auto;
+  padding-top: calc(clamp(64px, 9vw, 112px) + 88px);
+  padding-bottom: clamp(64px, 9vw, 112px);
+}
+
 body:not(.film-page) .editorial-grid,
 body:not(.film-page) .two-up {
   gap: clamp(34px, 7vw, 96px);
@@ -1018,6 +1066,15 @@ body:not(.film-page) .two-up {
     justify-self: start;
   }
 
+  .home-hero .hero-copy {
+    order: 1;
+  }
+
+  .home-hero .hero-image {
+    order: 2;
+    justify-self: center;
+  }
+
   .hero-image,
   .editorial-grid img {
     min-height: 0;
@@ -1103,7 +1160,7 @@ body:not(.film-page) .two-up {
   }
 
   .nav-cta {
-    border-bottom-color: var(--ink);
+    border-bottom-color: var(--accent);
   }
 
   .lang-switch {
