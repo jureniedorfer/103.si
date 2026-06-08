@@ -39,7 +39,8 @@ Notes:
 - `CONTACT_FROM_EMAIL` must use a domain verified in Resend.
 - `CONTACT_TO_EMAIL` is optional in code and defaults to `hello@103.si`, but setting it explicitly is recommended.
 - The form includes a basic honeypot field and server-side validation.
-- `_worker.js` is used instead of the `/functions` directory so dashboard drag-and-drop deployments work.
+- `_worker.js` is the Worker entry file.
+- `.assetsignore` prevents `_worker.js` and project metadata from being uploaded as public static assets.
 
 ## Project Structure
 

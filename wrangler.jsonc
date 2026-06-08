@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "103-si",
+  "main": "_worker.js",
+  "compatibility_date": "2026-06-08",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}

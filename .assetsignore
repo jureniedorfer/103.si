@@ -1,0 +1,10 @@
+_worker.js
+wrangler.jsonc
+.assetsignore
+README.md
+.git
+.git/**
+.DS_Store
+**/.DS_Store
+functions
+functions/**
