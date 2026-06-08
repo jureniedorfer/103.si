@@ -24,7 +24,7 @@ No package manager, build step, or backend is required.
 
 ## Contact Form
 
-The contact forms post to a Cloudflare Pages Function at `/api/contact`, which sends the enquiry email through Resend.
+The contact forms post to `/api/contact`, which is handled by the Cloudflare Pages `_worker.js` file and sends the enquiry email through Resend.
 
 Required Cloudflare Pages environment variables:
 
@@ -39,6 +39,7 @@ Notes:
 - `CONTACT_FROM_EMAIL` must use a domain verified in Resend.
 - `CONTACT_TO_EMAIL` is optional in code and defaults to `hello@103.si`, but setting it explicitly is recommended.
 - The form includes a basic honeypot field and server-side validation.
+- `_worker.js` is used instead of the `/functions` directory so dashboard drag-and-drop deployments work.
 
 ## Project Structure
 

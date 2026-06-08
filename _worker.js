@@ -57,7 +57,7 @@ const buildEmail = ({ name, email, inquiry, message, language }) => {
   };
 };
 
-const handleContactSubmission = async ({ request, env }) => {
+const handleContactSubmission = async (request, env) => {
   let formData;
 
   try {
@@ -112,15 +112,23 @@ const handleContactSubmission = async ({ request, env }) => {
   return redirectToContact(request, language, "success");
 };
 
-export function onRequest(context) {
-  if (context.request.method === "POST") {
-    return handleContactSubmission(context);
-  }
+export default {
+  fetch(request, env) {
+    const url = new URL(request.url);
 
-  return new Response("Method not allowed", {
-    status: 405,
-    headers: {
-      Allow: "POST"
+    if (url.pathname === "/api/contact") {
+      if (request.method !== "POST") {
+        return new Response("Method not allowed", {
+          status: 405,
+          headers: {
+            Allow: "POST"
+          }
+        });
+      }
+
+      return handleContactSubmission(request, env);
     }
-  });
-}
+
+    return env.ASSETS.fetch(request);
+  }
+};
