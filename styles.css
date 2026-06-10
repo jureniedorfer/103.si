@@ -836,6 +836,9 @@ h3 {
 
 .contact-panel-logo {
   width: 96px;
+  aspect-ratio: 304 / 235;
+  height: auto;
+  object-fit: contain;
   margin-bottom: 22px;
 }
 
@@ -911,6 +914,9 @@ h3 {
 
 .contact-image img {
   width: 100%;
+  aspect-ratio: 2400 / 820;
+  height: auto;
+  object-fit: contain;
 }
 
 .note {
